@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.formacion.nttdata.hello.model.User;
+
 @Controller
 
 public class HomeController {
@@ -44,7 +46,7 @@ public class HomeController {
 
 		System.out.println("User Page Requested");
 
-		model.addAttribute("userName", user.getUserName());
+		model.addAttribute("userName", user.getUsername());
 
 		return "user";
 

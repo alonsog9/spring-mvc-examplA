@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User Home Page</title>
 </head>
-<body>
-	<h3>Hi ${userName}</h3>
+<body style = "background-color:#03BB85">
+	<h3 style = "font-size: xx-large">Hi ${userName}</h3>
+	<P style = "font-weight: bold">Today is ${serverTime} and the time on the server on ${userTag} days will be ${newserverTime}.</p>
 </body>
- 
+
 </html>

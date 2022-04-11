@@ -31,10 +31,20 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/saveProcess")
-	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
+	public String saveEmployee(@ModelAttribute("employee") Employee employee, Model model) {
 		if (employee.getId() == null) {
-			return "redirect:/employee/errorPage";
-			//employeeMapper.saveEmployee(employee);
+
+			if (employeeMapper.comprobarFormulario(employee) == true) {
+				
+				model.addAttribute("employee", employeeMapper.almacenarFormulario(employee));
+				
+				return ERRORPAGE;
+				
+			}else{
+				employeeMapper.saveEmployee(employee);
+				return "redirect:/employee/listOfEmployee";
+			}
+			
 		} else {
 			employeeMapper.updateEmployee(employee);
 		}
@@ -53,12 +63,5 @@ public class EmployeeController {
 		return "redirect:/employee/listOfEmployee";
 	}
 	
-	@RequestMapping("/errorPage")
-	public String lanzarError(Model model) {
-		model.addAttribute("employeeList", employeeMapper.getAllEmployees());
-		//employeeMapper.mostrarError();
-		return ERRORPAGE;
-	}
-		
 
 }

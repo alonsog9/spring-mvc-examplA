@@ -8,15 +8,7 @@ public class Employee {
 	private String hobbies;
 	private String country;
 	private String address;
-	private String finalTimeUpdate;
 
-	public String getFinalTimeUpdate() {
-		return finalTimeUpdate;
-	}
-
-	public void setFinalTimeUpdate(String finalTimeUpdate) {
-		this.finalTimeUpdate = finalTimeUpdate;
-	}
 
 	public Integer getId() {
 		return id;

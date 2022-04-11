@@ -41,7 +41,43 @@ public class EmployeeMapper {
 		return employee;
 	}
     
-    public void mostrarError() {
-    	throw new RuntimeException("La edad debe ser positiva");
+    public boolean comprobarFormulario(Employee employee) {
+    	int i = 0;
+    	if (employee.getFullname().length()==0) {
+    		i++;
+    	}
+    	if (employee.getCountry().length()==0) {
+    		i++;
+    	}
+    	if (employee.getEmail().length()==0) {
+    		i++;
+    	}
+    	
+    	if(i > 0) {
+    		
+    		return true;
+    		
+    	}else {
+    		
+    		return false;
+    	}
+    	
     }
+    
+    public Employee almacenarFormulario(Employee employee) {
+
+    	if (employee.getFullname()==null || employee.getFullname().length()==0) {
+    		employee .setFullname("No puede estar vacio");
+    	}
+    	if (employee.getCountry()==null || employee.getCountry().length()==1) {
+    		employee.setCountry("No puede estar vacio");
+    	}
+    	if (employee.getEmail()==null || employee.getEmail().length()==0) {
+    		employee .setEmail("No puede estar vacio");
+
+    	}
+    		return employee;
+    }
+    
+
 }

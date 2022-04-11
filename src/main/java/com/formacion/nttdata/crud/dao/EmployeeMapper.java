@@ -40,4 +40,8 @@ public class EmployeeMapper {
         session.close();
 		return employee;
 	}
+    
+    public void mostrarError() {
+    	throw new RuntimeException("La edad debe ser positiva");
+    }
 }

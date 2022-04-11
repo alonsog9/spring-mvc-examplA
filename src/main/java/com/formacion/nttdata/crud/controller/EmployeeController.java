@@ -16,6 +16,7 @@ public class EmployeeController {
 	EmployeeMapper employeeMapper;
 	private static final String EMPLOYEE = "Employee";
 	private static final String EMPLOYEELIST = "ListEmployees";
+	private static final String ERRORPAGE = "ErrorPage";
 
 	@RequestMapping("/listOfEmployee")
 	public String showListOfEmployees(Model model) {
@@ -32,7 +33,8 @@ public class EmployeeController {
 	@RequestMapping("/saveProcess")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee) {
 		if (employee.getId() == null) {
-			employeeMapper.saveEmployee(employee);
+			return "redirect:/employee/errorPage";
+			//employeeMapper.saveEmployee(employee);
 		} else {
 			employeeMapper.updateEmployee(employee);
 		}
@@ -50,4 +52,13 @@ public class EmployeeController {
 		employeeMapper.deleteEmployee(employeeId);
 		return "redirect:/employee/listOfEmployee";
 	}
+	
+	@RequestMapping("/errorPage")
+	public String lanzarError(Model model) {
+		model.addAttribute("employeeList", employeeMapper.getAllEmployees());
+		//employeeMapper.mostrarError();
+		return ERRORPAGE;
+	}
+		
+
 }

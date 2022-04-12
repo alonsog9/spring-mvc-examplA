@@ -49,7 +49,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 
-	public String user(@Validated User user, Model model, Locale locale) {  //importamos locale
+	public String user(@Validated User user, Model model, Locale locale) {  
 
 		System.out.println("User Page Requested");
 

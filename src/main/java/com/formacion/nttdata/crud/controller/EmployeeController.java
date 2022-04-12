@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.formacion.nttdata.crud.dao.EmployeeMapper;
 import com.formacion.nttdata.crud.dto.Employee;
 
@@ -41,11 +42,13 @@ public class EmployeeController {
 				return ERRORPAGE;
 				
 			}else{
+				employeeMapper.catFecha(employee);
 				employeeMapper.saveEmployee(employee);
 				return "redirect:/employee/listOfEmployee";
 			}
 			
 		} else {
+			employeeMapper.catFecha(employee);
 			employeeMapper.updateEmployee(employee);
 		}
 		return "redirect:/employee/listOfEmployee";

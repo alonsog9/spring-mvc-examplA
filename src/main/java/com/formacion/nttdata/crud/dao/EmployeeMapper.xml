@@ -20,15 +20,15 @@
 	</select>
 
 	<insert id="insertEmployee" parameterType="employee">
-		INSERT INTO employee(fullname, email, gender, hobbies, country, address)
+		INSERT INTO employee(fullname, email, gender, hobbies, country, address, lastdate)
 		VALUES(#{fullname}, #{email}, #{gender}, #{hobbies}, #{country},
-		#{address})
+		#{address}, #{lastdate})
 	</insert>
 
 	<update id="updateEmployee" parameterType="employee">
 		UPDATE employee SET fullname = #{fullname}, email = #{email}, gender =
 		#{gender}, hobbies = #{hobbies}, country = #{country}, address =
-		#{address}
+		#{address}, lastdate = #{lastdate}
 		WHERE id = #{id}
 	</update>
 

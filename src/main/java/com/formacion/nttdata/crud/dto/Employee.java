@@ -8,7 +8,16 @@ public class Employee {
 	private String hobbies;
 	private String country;
 	private String address;
+	private String lastdate;
 
+
+	public String getLastdate() {
+		return lastdate;
+	}
+
+	public void setLastdate(String lastdate) {
+		this.lastdate = lastdate;
+	}
 
 	public Integer getId() {
 		return id;

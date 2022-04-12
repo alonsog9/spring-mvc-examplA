@@ -21,10 +21,7 @@
 				<tr>
 					<th>Full Name</th>
 					<th>Email</th>
-					<th>Gender</th>
-					<th>Hobbies</th>
 					<th>Country</th>
-					<th>Address</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -32,10 +29,7 @@
 					<tr>
 						<td>${employee.fullname}</td>
 						<td>${employee.email}</td>
-						<td>${employee.gender}</td>
-						<td>${employee.hobbies}</td>
 						<td>${employee.country}</td>
-						<td>${employee.address}</td>
 						<td><a href="/spring-mvc-examplA/employee/showFormForAdd.html">Volver al formulario</a> 
 					</tr>
 				</tbody>

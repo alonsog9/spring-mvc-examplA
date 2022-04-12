@@ -1,8 +1,13 @@
 package com.formacion.nttdata.crud.dao;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
 import com.formacion.nttdata.crud.dto.Employee;
 import com.formacion.nttdata.util.MyBatisUtil;
 @Repository
@@ -77,6 +82,20 @@ public class EmployeeMapper {
 
     	}
     		return employee;
+    }
+    
+    public Employee catFecha(Employee employee) {
+    	
+    	Date date = new Date();
+    	Locale locale = new Locale("es", "ES");
+    	
+    	DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+    	employee.setLastdate(formattedDate);
+    	
+    	return employee;
     }
     
 

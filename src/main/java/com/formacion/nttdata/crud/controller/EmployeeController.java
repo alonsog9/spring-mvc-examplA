@@ -44,13 +44,24 @@ public class EmployeeController {
 			}else{
 				employeeMapper.catFecha(employee);
 				employeeMapper.saveEmployee(employee);
+				
 				return "redirect:/employee/listOfEmployee";
 			}
 			
 		} else {
-			employeeMapper.catFecha(employee);
-			employeeMapper.updateEmployee(employee);
+			
+			if (employeeMapper.comprobarFormulario(employee) == true) {
+				
+				model.addAttribute("employee", employeeMapper.almacenarFormulario(employee));
+				
+				return ERRORPAGE;
+				
+			}else{
+				employeeMapper.catFecha(employee);
+				employeeMapper.updateEmployee(employee);
+			}
 		}
+		
 		return "redirect:/employee/listOfEmployee";
 	}
 
